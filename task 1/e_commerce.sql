@@ -1,0 +1,88 @@
+-- create database e_commerce;
+-- create table e_commerce.Customers 
+-- (
+-- customer_id int auto_increment,
+-- first_name varchar(100) not null,
+-- last_name varchar(100) not null, 
+-- email varchar(150) unique not null,
+--      phone_number varchar(20),
+--      primary key (customer_id)
+--   );
+--   create table e_commerce.products 
+--   (
+--   product_id int auto_increment,
+--   product_name varchar(255) unique not null,
+--      description TEXT,
+--      price DECIMAL(10, 2) not null,
+--      primary key (product_id),
+--      CHECK (price >= 0)
+--      );
+--      create table  e_commerce.orders 
+--      (
+--           order_id int auto_increment,
+--           customer_id int not null,
+--           order_date DATETIME not null,
+--           total_amount DECIMAL(10, 2) not null,
+-- 		  shipping_address varchar(255) not null,
+--           primary key (order_id),
+--           foreign key (customer_id)
+--                references customers(customer_id)
+-- 			   on delete cascade
+--                on update cascade
+-- 		);
+--         create table e_commerce.order_items
+--         (
+--         order_id int not null,
+--         product_id int not null,
+--         quantity int not null,
+--         unit_price DECIMAL(10, 2) not null,
+--         primary key (order_id, product_id),
+--         foreign key (order_id) references orders(order_id)
+--                on delete restrict
+--                on update cascade,
+-- 		foreign key (product_id) references products(product_id)
+--               on delete restrict
+--               on update cascade,
+--               CHECK (quantity > 0)
+--            );
+--            
+-- -- Insert 5 sample customers
+-- INSERT INTO e_commerce.Customers (first_name, last_name, email, phone_number) VALUES
+-- ('Alice', 'Johnson', 'alice.j@example.com', '555-1234'),
+-- ('Bob', 'Smith', 'bob.smith@example.com', '555-5678'),
+-- ('Charlie', 'Brown', 'charlie.b@example.com', NULL),
+-- ('Diana', 'Prince', 'diana.p@example.com', '555-9012'),
+-- ('Ethan', 'Hunt', 'ethan.h@example.com', '555-3456');
+ 
+ -- Insert 5 sample products
+-- INSERT INTO e_commerce.Products (product_name, description, price) VALUES
+-- ('Laptop Pro X1', 'High-performance laptop with 16GB RAM and 512GB SSD.', 1299.99),
+-- ('Wireless Mouse M300', 'Ergonomic mouse with long-lasting battery life.', 25.50),
+-- ('Mechanical Keyboard K90', 'Tactile mechanical keyboard with RGB backlighting.', 89.95),
+-- ('4K Monitor UltraView', '27-inch 4K UHD monitor with HDR support.', 450.00),
+-- ('USB-C Hub 7-in-1', 'Multiport adapter for modern laptops.', 35.00);
+
+  -- Insert 4 sample orders
+-- INSERT INTO e_commerce.Orders (customer_id, order_date, total_amount, shipping_address) 
+-- (1, '2025-10-18 10:30:00', 1325.49, '45 Pine St, Anytown, CA 90210'), 
+-- (2, '2025-10-18 14:00:00', 89.95, '10 Oak Ave, Suburbia, TX 77001'), 
+-- (1, '2025-10-19 09:15:00', 485.00, '45 Pine St, Anytown, CA 90210'), 
+-- (4, '2025-10-19 16:45:00', 35.00, '3 Amazon Way, Themyscira, DC 20001'); 
+
+   -- Insert order items for Order 1 (Laptop Pro X1 and Wireless Mouse M300)
+-- INSERT INTO e_commerce.Order_Items (order_id, product_id, quantity, unit_price) VALUES
+-- (1, 1, 1, 1299.99), -- Laptop Pro X1
+-- (1, 2, 1, 25.50);   -- Wireless Mouse M300
+
+-- -- Insert order items for Order 2 (Mechanical Keyboard K90)
+-- INSERT INTO e_commerce.Order_Items (order_id, product_id, quantity, unit_price) VALUES
+-- (2, 3, 1, 89.95);   -- Mechanical Keyboard K90
+
+-- -- Insert order items for Order 3 (4K Monitor UltraView and USB-C Hub, note the price for the monitor is 450.00 and the USB-C Hub is 35.00)
+-- INSERT INTO e_commerce.Order_Items (order_id, product_id, quantity, unit_price) VALUES
+-- (3, 4, 1, 450.00),  -- 4K Monitor UltraView
+-- (3, 5, 1, 35.00);   -- USB-C Hub 7-in-1
+
+-- -- Insert order items for Order 4 (USB-C Hub 7-in-1)
+-- INSERT INTO e_commerce.Order_Items (order_id, product_id, quantity, unit_price) VALUES
+-- (4, 5, 1, 35.00);   -- USB-C Hub 7-in-1
