@@ -1,0 +1,29 @@
+What is normalization?
+It's a design technique for organizing database tables to reduce data duplication and improve data integrity by splitting large tables into smaller, linked ones.
+
+Primary vs Foreign Keys?
+A primary key is the unique identifier for each record within its own table. A foreign key is a column in one table that points to the primary key in another table, acting as a link.
+
+What are constraints?
+Constraints are rules that validate data before it's allowed into a table. They enforce data accuracy by setting limits, like ensuring a value is unique or not empty.
+
+What is a surrogate key?
+A surrogate key is an artificial primary key, usually just a unique number, that has no business meaning. Its only job is to uniquely identify a row.
+
+How do you avoid data redundancy?
+You avoid redundancy by applying normalization. This means you store a piece of information (like a name) in only one table and then reference it elsewhere using a key, rather than re-typing it.
+
+What is an ER diagram?
+An Entity-Relationship (ER) diagram is a flowchart that visually maps out the database structure, showing the tables (entities) and how they connect (their relationships).
+
+What are the types of relationships in DBMS?
+There are three types: one-to-one (one record links to one other), one-to-many (one record links to multiple others), and many-to-many (multiple records link to multiple others).
+
+Purpose of AUTO_INCREMENT?
+Its purpose is to automatically generate a unique, sequential number for a new row. This is typically used to create a simple, hands-off primary key.
+
+What is the default storage engine in MySQL?
+The default storage engine is InnoDB. It's preferred because it robustly supports transactions, foreign keys, and crash recovery, which are vital for data reliability.
+
+What is a composite key?
+A composite key is a primary key that requires two or more columns combined to create a unique identifier for a row. No single column in the key is unique by itself, but their combination is.
